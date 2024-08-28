@@ -11,9 +11,9 @@ import java.awt.*;
 
 public class TestBase {
 
-    Playwright playwright;
-    Browser browser;
-    Page page;
+    protected Playwright playwright;
+    protected Browser browser;
+    protected Page page;
 
     @BeforeMethod
     public void setUp(){
@@ -30,9 +30,9 @@ public class TestBase {
 
     @AfterMethod
     public void tearDown(){
-        playwright.close();
-        browser.close();
         page.close();
+        browser.close();
+        playwright.close();
     }
 
 
