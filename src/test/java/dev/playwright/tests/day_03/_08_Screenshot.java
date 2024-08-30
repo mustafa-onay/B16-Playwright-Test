@@ -13,11 +13,11 @@ public class _08_Screenshot extends TestBase {
     @Test
     public void test1() {
 
-        newPage.navigate("https://www.ebay.com/");
+        page.navigate("https://www.ebay.com/");
 
         String date = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
         String filePath = "src/test/resources/screenshots/" + date + ".png";
-        newPage.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(filePath)));
+        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get(filePath)));
 
         // hardcoding
 //        page.screenshot(new Page.ScreenshotOptions().setPath(Paths.get("screenshots/testFP.png")).setFullPage(true));

@@ -11,19 +11,19 @@ public class _05_IFrames extends TestBase {
     @Test
     public void test1() {
 
-        newPage.navigate("https://the-internet.herokuapp.com/nested_frames");
-        Frame frame = newPage.frame("frame-left");
+        page.navigate("https://the-internet.herokuapp.com/nested_frames");
+        Frame frame = page.frame("frame-left");
 
         Locator lastElement = frame.locator(":has-text('Left')").last();
         System.out.println("lastElement.innerText() = " + lastElement.innerText());
 
-        System.out.println("page.url() = " + newPage.url());
+        System.out.println("page.url() = " + page.url());
 
-        for (Frame eachFrame: newPage.frames()){
+        for (Frame eachFrame: page.frames()){
             System.out.println("eachFrame.url() = " + eachFrame.url());
         }
 
-        Frame rightFrame = newPage.frameByUrl("https://the-internet.herokuapp.com/frame_right");
+        Frame rightFrame = page.frameByUrl("https://the-internet.herokuapp.com/frame_right");
         Locator rightElement = rightFrame.locator(":has-text('Right')").last();
         System.out.println("rightElement.innerText() = " + rightElement.innerText());
     }
@@ -31,9 +31,9 @@ public class _05_IFrames extends TestBase {
     @Test
     public void test2() {
 
-        newPage.navigate("https://demoqa.com/frames");
+        page.navigate("https://demoqa.com/frames");
 
-        FrameLocator frameLocator = newPage.frameLocator("#frame1");
+        FrameLocator frameLocator = page.frameLocator("#frame1");
         Locator locator = frameLocator.locator("#sampleHeading");
         System.out.println("locator.innerText() = " + locator.innerText());
 

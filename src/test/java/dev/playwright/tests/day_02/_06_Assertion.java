@@ -11,17 +11,17 @@ public class _06_Assertion extends TestBase {
     @Test
     public void testName() {
 
-        newPage.navigate("https://www.ebay.com/");
-        assertThat(newPage).hasURL("https://www.ebay.com/");
-        assertThat(newPage).not().hasURL("error");
-        assertThat(newPage).hasTitle("Electronics, Cars, Fashion, Collectibles & More | eBay");
+        page.navigate("https://www.ebay.com/");
+        assertThat(page).hasURL("https://www.ebay.com/");
+        assertThat(page).not().hasURL("error");
+        assertThat(page).hasTitle("Electronics, Cars, Fashion, Collectibles & More | eBay");
 
-        Locator signIn = newPage.getByText("Sign in").first();
+        Locator signIn = page.getByText("Sign in").first();
 
         assertThat(signIn).hasText("Sign in");
         assertThat(signIn).containsText("Sign");
 
-        Locator searchBox = newPage.getByPlaceholder("Search for anything");
+        Locator searchBox = page.getByPlaceholder("Search for anything");
         assertThat(searchBox).hasAttribute("autocomplete", "off");
 
         assertThat(searchBox).isVisible();

@@ -16,17 +16,17 @@ public class _07_Actions extends TestBase {
     @Test
     public void keyboardAndScroll() throws InterruptedException {
 
-        newPage.navigate("https://www.ebay.com/");
-        Locator searchBox = newPage.getByPlaceholder("Search for anything");
+        page.navigate("https://www.ebay.com/");
+        Locator searchBox = page.getByPlaceholder("Search for anything");
         searchBox.fill("java");
         searchBox.press("Enter");
         Thread.sleep(3000);
 
-        newPage.keyboard().press("End");
+        page.keyboard().press("End");
 
         Thread.sleep(3000);
 
-        newPage.getByText("Sold Items").scrollIntoViewIfNeeded();
+        page.getByText("Sold Items").scrollIntoViewIfNeeded();
 
         Thread.sleep(3000);
 
@@ -35,10 +35,10 @@ public class _07_Actions extends TestBase {
     @Test
     public void checkBoxAndRadioButtons() throws InterruptedException {
 
-        newPage.navigate("https://demoqa.com/radio-button");
+        page.navigate("https://demoqa.com/radio-button");
 
-        Locator yes = newPage.getByText("Yes");
-        Locator impressive = newPage.getByText("Impressive");
+        Locator yes = page.getByText("Yes");
+        Locator impressive = page.getByText("Impressive");
         yes.check();
         //yes.isChecked();
 
@@ -49,7 +49,7 @@ public class _07_Actions extends TestBase {
 
         Thread.sleep(3000);
 
-        Locator no = newPage.getByText("No");
+        Locator no = page.getByText("No");
         no.isDisabled();
 
     }
@@ -57,9 +57,9 @@ public class _07_Actions extends TestBase {
     @Test
     public void dropdown() throws InterruptedException {
 
-        newPage.navigate("https://www.ebay.com/");
+        page.navigate("https://www.ebay.com/");
 
-        Locator dropdown = newPage.locator("#gh-cat");
+        Locator dropdown = page.locator("#gh-cat");
 
         dropdown.selectOption("Art");
 
@@ -69,12 +69,12 @@ public class _07_Actions extends TestBase {
 
         dropdown.selectOption(new SelectOption().setIndex(5));
 
-        Locator motors = newPage.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Motors"));
+        Locator motors = page.getByRole(AriaRole.LINK, new Page.GetByRoleOptions().setName("Motors"));
         motors.hover(new Locator.HoverOptions().setForce(true));
         Thread.sleep(2000);
 
 
-        Locator searchButton = newPage.locator("#gh-btn");
+        Locator searchButton = page.locator("#gh-btn");
         searchButton.click(new Locator.ClickOptions().setButton(MouseButton.RIGHT));
 
         Thread.sleep(2000);
@@ -84,8 +84,8 @@ public class _07_Actions extends TestBase {
     @Test
     public void dragAndDrop() throws InterruptedException {
 
-        newPage.navigate("https://demoqa.com/droppable");
-        newPage.locator("#draggable").dragTo(newPage.locator("#droppable").first());
+        page.navigate("https://demoqa.com/droppable");
+        page.locator("#draggable").dragTo(page.locator("#droppable").first());
 
         BrowserContext browserContext = browser.newContext();
         Page newPage = browserContext.newPage();
