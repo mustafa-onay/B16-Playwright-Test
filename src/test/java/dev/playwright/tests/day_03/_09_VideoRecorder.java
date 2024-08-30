@@ -17,7 +17,7 @@ public class _09_VideoRecorder extends TestBase {
     public void test1() throws InterruptedException {
 
         String date = new SimpleDateFormat("_hh_mm_ss_ddMMyyyy").format(new Date());
-        String videoPath = System.getProperty("user.dir") + "/src/test/resources/videos/" + date + ".mp4";
+        String videoPath = System.getProperty("user.dir") + "/src/test/resources/videos/" + date;
 
         BrowserContext browserContext = browser.newContext(new Browser.NewContextOptions().setRecordVideoDir(Paths.get(videoPath)));
 
