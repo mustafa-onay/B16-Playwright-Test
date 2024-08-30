@@ -13,24 +13,24 @@ public class TestBase {
 
     protected Playwright playwright;
     protected Browser browser;
-    protected Page page;
+    protected Page newPage;
 
     @BeforeMethod
     public void setUp(){
         playwright = Playwright.create();
         browser = playwright.chromium().launch(new BrowserType.LaunchOptions().setHeadless(false).setSlowMo(50));
-        page = browser.newPage();
+        newPage = browser.newPage();
 
         Dimension dimension = Toolkit.getDefaultToolkit().getScreenSize();
         int width = (int) dimension.getWidth();
         int height = (int) dimension.getHeight();
 
-        page.setViewportSize(width,height);
+        newPage.setViewportSize(width,height);
     }
 
     @AfterMethod
     public void tearDown(){
-        page.close();
+        newPage.close();
         browser.close();
         playwright.close();
     }

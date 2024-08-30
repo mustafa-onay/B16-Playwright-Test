@@ -1,9 +1,6 @@
 package dev.playwright.tests.day_02;
 
 import com.microsoft.playwright.Locator;
-import com.microsoft.playwright.Page;
-import com.microsoft.playwright.assertions.PlaywrightAssertions;
-import com.microsoft.playwright.assertions.PlaywrightAssertions;
 import dev.playwright.tests.utils.TestBase;
 import org.testng.annotations.Test;
 
@@ -14,17 +11,17 @@ public class _06_Assertion extends TestBase {
     @Test
     public void testName() {
 
-        page.navigate("https://www.ebay.com/");
-        assertThat(page).hasURL("https://www.ebay.com/");
-        assertThat(page).not().hasURL("error");
-        assertThat(page).hasTitle("Electronics, Cars, Fashion, Collectibles & More | eBay");
+        newPage.navigate("https://www.ebay.com/");
+        assertThat(newPage).hasURL("https://www.ebay.com/");
+        assertThat(newPage).not().hasURL("error");
+        assertThat(newPage).hasTitle("Electronics, Cars, Fashion, Collectibles & More | eBay");
 
-        Locator signIn = page.getByText("Sign in").first();
+        Locator signIn = newPage.getByText("Sign in").first();
 
         assertThat(signIn).hasText("Sign in");
         assertThat(signIn).containsText("Sign");
 
-        Locator searchBox = page.getByPlaceholder("Search for anything");
+        Locator searchBox = newPage.getByPlaceholder("Search for anything");
         assertThat(searchBox).hasAttribute("autocomplete", "off");
 
         assertThat(searchBox).isVisible();
