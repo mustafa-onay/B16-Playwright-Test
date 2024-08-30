@@ -19,8 +19,8 @@ public class _12_TraceViewer extends TestBase {
         BrowserContext browserContext = browser.newContext();
         browserContext.tracing().start(new Tracing.StartOptions()
                 .setScreenshots(true)
-                .setSnapshots(true)
-                .setSources(true)
+                        .setSnapshots(true)
+                                .setSources(true)
         );
 
         Page newPage = browserContext.newPage();
