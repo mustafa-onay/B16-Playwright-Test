@@ -26,10 +26,6 @@ public class _05_IFrames extends TestBase {
         Frame rightFrame = page.frameByUrl("https://the-internet.herokuapp.com/frame_right");
         Locator rightElement = rightFrame.locator(":has-text('Right')").last();
         System.out.println("rightElement.innerText() = " + rightElement.innerText());
-
-        FrameLocator middleFrame = page.frameLocator("[name='frame-middle']");
-        Locator middleText = middleFrame.locator("MIDDLE");
-        System.out.println("middleText.innerText() = " + middleText.innerText());
     }
 
     @Test
@@ -40,5 +36,7 @@ public class _05_IFrames extends TestBase {
         FrameLocator frameLocator = page.frameLocator("#frame1");
         Locator locator = frameLocator.locator("#sampleHeading");
         System.out.println("locator.innerText() = " + locator.innerText());
+
+
     }
 }
