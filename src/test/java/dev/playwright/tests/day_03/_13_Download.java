@@ -4,13 +4,14 @@ import com.microsoft.playwright.Download;
 import dev.playwright.tests.utils.TestBase;
 import org.testng.annotations.Test;
 
+import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 
 public class _13_Download extends TestBase {
 
     @Test
-    public void testName() {
+    public void testName() throws IOException {
 
         page.navigate("https://demoqa.com/upload-download");
 
@@ -22,6 +23,7 @@ public class _13_Download extends TestBase {
 
         download.saveAs(Paths.get(filePath));
 
+
         System.out.println("download.path() = " + download.path());
         System.out.println("download.url() = " + download.url());
         System.out.println("download.page().title() = " + download.page().title());
@@ -30,6 +32,6 @@ public class _13_Download extends TestBase {
         System.out.println("isFileDownloaded = " + isFileDownloaded);
         assert isFileDownloaded;
 
-
+        Files.deleteIfExists(Paths.get(filePath));
     }
 }
